@@ -1,6 +1,6 @@
 # *Clean Code* by *Robert Cecil Martin*
 
-## DAY 01
+## DAY 01 - 21/Jan/2022
 
 ### Takeaways
 -
