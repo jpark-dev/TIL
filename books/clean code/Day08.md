@@ -54,5 +54,5 @@ String listItemContent = match.group(3).trim();
 - Try your best (and be honest) to re-write the code before leaving a comment.
 - I like this chapter as I was on a pendulum between writing more specific comments vs. no comment at all. Unless there is a real good reason, comments should be avoided - but write one if necessary.
 - It will take years of practice and experience until one can write a clean code. Again, the code tells a story, and if you think you are not the master-writer of your own story, use comments. Don't be discouraged, come back to that code with comments in a day or two, and I believe you will be able to rewrite it into a better code with less comment.
-e
+
 ### Extra
