@@ -6,6 +6,7 @@
 ### Original Code
 - This code was written in a final group project from my very first bootcamp back in 2015 - where users could search restaurants, rate, review and interact with the owners.
 
+<a name="original_code"></a>
 ```js
 function DownloadView() {
   setContentType("application/download);charset=utf-8");
@@ -55,8 +56,8 @@ function renderMergedOutputModel(model, request, response) {
 }
 ```
 
-
 ### CLEAN CODE!!!
+<a name="refactored_code"></a>
 ```js
 const getBrowserInfo = (req) => {
   return req.getHeader("User-Agent");
@@ -150,4 +151,77 @@ const renderMergedOutputModel = (req, res, model) => {
 };
 
 ```
-### Extra
+
+### Applications
+---
+> 1. Single method in `try ~ catch` error handling.
+
+From:
+```js
+try {
+  fis = new FileInputStream(file);// 위치/파일정보
+  // 파일전송->복사->FileCopyUtil이용
+  FileCopyUtils.copy(fis, out);// 입력받는쪽,출력하는쪽
+} catch (IOException e) {
+  e.printStackTrace();
+} finally { // 메모리를 해제하는 코딩
+  if (fis != null) {
+    try {
+      fis.close();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+}
+out.flush();// 출력하라(flush()->무조건 출력)
+```
+Refactored to:
+```js
+try {
+  setHeaderAndCopy(req, res, fileStream);
+} catch (error) {
+  handleError();
+} finally {
+  releaseMemory(inputStream);
+}
+forcePrintStream(fileStream);
+```
+---
+> 2. No comments unless absolutely necessary - the names should be self-explanatory.
+
+From:
+```js
+// 브라우저의 종류 한글처리
+var userAgent = request.getHeader("User-Agent");// 브라우저 정보
+var ie = userAgent.indexOf("MSIE") > -1;
+var filename = null;// 다운로드 받을 파일명
+// IE라면
+if (ie) {
+  filename = URLEncoder.encode(file.getName(), "utf-8");
+} else {// chrom,,, (영어->Iso-8859-1
+  filename = new String(file.getName().getBytes("utf-8"), "iso-8859-1");
+```
+Refactored to:
+```js
+const getBrowserInfo = (req) => {
+  return req.getHeader("User-Agent");
+};
+
+const getFileName = (req, file) => {
+  const userBrowser = getBrowserInfo(req);
+  const IE = userBrowser.indexOf("MSIE") > -1;
+  const fileName = file.getName();
+
+  return IE
+    ? URLEncoder.encode(fileName, "utf-8")
+    : new String(fileName.getBytes("utf-8"), "iso-8859-1");
+};
+```
+---
+> 3. A single function should handle a single concept.
+
+From:
+[Original Code](#original_code) (Single function to handle all different concepts)
+
+To:
+[Refactored Code](#refactored_code) (Broke down into smaller functions)
