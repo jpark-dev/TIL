@@ -135,7 +135,7 @@ const createFileStream = (res, downloadedFile, inputStream) => {
   }
 };
 
-const renderMergedOutputModel = (req, res, model) => {
+const printCopiedFile = (req, res, model) => {
   const downloadedFile = model.get("downloadFile");
   const inputStream = getInputStream(downloadedFile);
   const fileStream = createFileStream(res, downloadedFile, inputStream);
