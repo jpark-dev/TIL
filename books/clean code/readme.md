@@ -11,5 +11,4 @@
 
 + [Day15](Day15.md) / [Day16](Day16.md) / [Day17](Day17.md) / [Day18](Day18.md) / QUIZ / [Day20](Day20.md) / [Day21](Day21.md)
 
-+ [Day22](Day22.md) / [Day23](Day23.md) / [Day24](Day10.md)
-
++ [Day22](Day22.md)
