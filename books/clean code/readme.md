@@ -1,6 +1,6 @@
 # [Clean Code](https://www.goodreads.com/book/show/3735293-clean-code) by [Robert C. Martin](https://en.wikipedia.org/wiki/Robert_C._Martin).
 
-## Daily reading for 24 days
+## Daily reading for 22 days
 - Read a fraction of a chapter ***EVERYDAY*** (1/2, 1/3, etc.).
 - Note takeaways and reflections.
 
