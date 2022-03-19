@@ -1,6 +1,4 @@
 # TIL
-> Repo for TIL(Today I Learned) notes.
-
 > Read ***EVERY DAY***, should it be a chapter, a page, or a paragraph.
 
 > Write and share daily takeaways and reflections.
